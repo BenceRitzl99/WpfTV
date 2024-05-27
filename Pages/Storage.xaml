@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="WpfTV.Pages.Storage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfTV.Pages"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             mc:Ignorable="d" 
+             
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border VerticalAlignment="Center" MinHeight="400" Padding="20,30" Margin="50">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#2e3967"/>
+                <GradientStop Color="#192559" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+            <StackPanel>
+            <TextBlock Text="Total Size : 9.6 GB" FontSize="22" Foreground="Wheat"/>
+            <lvc:PieChart Height="250" InnerRadius="150">
+                <lvc:PieChart.Series>
+                    <lvc:PieSeries Title="System" Values="800" Fill="Green" StrokeThickness="0"/>
+                    <lvc:PieSeries Title="Photo" Values="400" Fill="Red" StrokeThickness="0"/>
+                    <lvc:PieSeries Title="Music" Values="1200" Fill="Blue" StrokeThickness="0"/>
+                    <lvc:PieSeries Title="Application" Values="70" Fill="Purple" StrokeThickness="0"/>
+                    <lvc:PieSeries Title="Video" Values="150" Fill="Orange" StrokeThickness="0"/>
+                </lvc:PieChart.Series>
+            </lvc:PieChart>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <local:StorageTitlePage Title="System: 800 MB" Color="Green"/>
+            <local:StorageTitlePage Title="Photo: 400 MB" Color="Red"/>
+            <local:StorageTitlePage Title="Music: 1200 MB" Color="Blue"/>
+            <local:StorageTitlePage Title="Application: 70 MB" Color="Purple"/>
+            <local:StorageTitlePage Title="Video: 150 MB" Color="Orange"/>
+            
+            
+        </StackPanel>
+
+        </Grid>
+    </Border>
+</UserControl>
